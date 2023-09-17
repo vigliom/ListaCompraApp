@@ -22,10 +22,10 @@ import { ref } from 'vue';
 
 
 const user =ref({});
-async function login(ev){
+function login(ev){
     ev.preventDefault();
     
-    await sotreAuth.dispatch('login', user.value).then(()=>{
+    sotreAuth.dispatch('login', user.value).then(()=>{
         console.log('login');
         router.push({name: 'home'})
     });

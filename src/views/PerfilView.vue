@@ -31,12 +31,8 @@
 </template>
 <script setup>
 import sotreAuth from '../store/authStore.js'
-import router from '../router';
 function logout(){
-    sotreAuth.dispatch('logout').then(()=>{
-        router.push({name: 'login'})
-
-    });
+    sotreAuth.dispatch('logout');
 }
 </script>
 

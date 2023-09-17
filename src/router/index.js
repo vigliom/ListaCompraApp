@@ -1,10 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import sotreAuth from '../store/authStore';
+import ListasView from '../views/ListasView.vue';
+import EditListaView from '../views/EditListaView.vue';
+import NotFoundView from '../views/Error/NotFoundView.vue';
+import AuthView from '../views/AuthView.vue';
+import LoginView from '../views/LoginView.vue';
+import RegisterView from '../views/RegisterView.vue';
+import PerfilView from '../views/PerfilView.vue';
 
+const base = '/ListaCompraApp';
 const routes =  [
   {
-    path: '/',
+    path: base + '/',
     name: 'home',
     meta:{
       isGest:false
@@ -12,9 +20,9 @@ const routes =  [
     component: HomeView
   },
   {
-    path: '/listas',
+    path: base + '/listas',
     name: 'listas',
-    component: () => import('../views/ListasView.vue'),
+    component: ListasView,
     meta:{
       isGest:false
     },
@@ -23,9 +31,9 @@ const routes =  [
     ]
   },
   {
-    path: '/lista/:id',
+    path: base + '/lista/:id',
     name: 'lista',
-    component: () => import('../views/EditListaView.vue'),
+    component: EditListaView,
     meta:{
       isGest:false
     },
@@ -37,55 +45,55 @@ const routes =  [
     meta: {
       isGest:false
     },
-    component: () => import('../views/Error/NotFoundView.vue')
+    component: NotFoundView
   },
   {
-    path: '/auth',
+    path: base + '/auth',
     name: 'auth',
-    redirect: '/auth/login',
+    redirect: base + '/auth/login',
     meta:{
       isGest:true
     },
-    component: () => import('../views/AuthView.vue'),
+    component: AuthView,
     children: [
       {
-        path: '/auth/login',
+        path: 'login',
         name: 'login',
         meta: {
           isGest:true
         },
-        component: () => import('../views/LoginView.vue')
+        component: LoginView
       },
       {
-        path: '/register',
+        path:'register',
         name: 'register',
         meta:{
           isGest:true
         },
-        component: () => import('../views/RegisterView.vue')
+        component: RegisterView
       }
     ]
   },
   {
-    path:'/perfil',
+    path: base + '/perfil',
     name:'perfil',
     meta:{
       isGest:false
     },
-    component:() => import('../views/PerfilView.vue')
+    component:PerfilView
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes
+  history:createWebHistory(),
+  routes  
 })
 
 router.beforeEach((to, from, next) => {
   
   if (to.meta.isGest) {
     if (sotreAuth.state.user.token) {
-      next({ name: 'home' });
+      next({name:'home'});
     } else {
       next();
     }
@@ -93,7 +101,7 @@ router.beforeEach((to, from, next) => {
     if (sotreAuth.state.user.token) {
       next();
     } else {
-      next({ name: 'login' });
+      next({name:'login'});
     }
   }
 });

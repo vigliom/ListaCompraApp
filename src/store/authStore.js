@@ -1,23 +1,23 @@
 import {createStore} from "vuex";
-import router from "../router";
+import router from "../router/index.js";
 
 const sotreAuth= createStore({
    state:{
     user:{
         name: '',        
-        token:localStorage.getItem('token'),
+        token:sessionStorage.getItem('token'),
         email:''
     }
    },
    actions:{
     login:(user)=>{
-        localStorage.setItem('token', user.email)
-        router.go('/home')
+        router.go({name:'home'});
+        sessionStorage.setItem('token', user.email+'Token');
     },
-    logout:()=>{
-        localStorage.setItem('token', '');
-        router.go('/login')
-        console.log('Aqui');
+    logout: ()=>{
+        router.go({name:'login'});
+        sessionStorage.setItem('token', '');
+        
     }
 
    }
