@@ -1,3 +1,1 @@
-module.exports = {
-    publicPath: '/prefer/'
-}
+export const publicPath = '/ListaCompraApp/';

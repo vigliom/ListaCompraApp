@@ -11,7 +11,7 @@
                 <label for="password">Contraseña</label>
                 <input type="password" class="form-control" v-model="user.password" id="password" placeholder="Contraseña">
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button :to="{name:'home'}" type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
 </template>
@@ -22,12 +22,12 @@ import { ref } from 'vue';
 
 
 const user =ref({});
-function login(ev){
+async function login(ev){
     ev.preventDefault();
     
-    sotreAuth.dispatch('login', user.value).then(()=>{
+    await sotreAuth.dispatch('login', user.value).then(()=>{
         console.log('login');
-        router.push({name: 'home'})
+        router.go({name:'home'});
     });
 }
 </script>

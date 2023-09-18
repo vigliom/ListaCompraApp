@@ -2,237 +2,8 @@ import { createStore } from "vuex";
 
 const entityStore = createStore({
     state: {
-        Listas:[
-            {
-                id:1,                
-                listName:'Lista 1',
-                comprada:false,
-                descripcion:'Descripcion de la lista 1',
-                items:[
-                    {
-                        id:1,
-                        name:'Item 1',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:2,
-                        name:'Item 2',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:3,
-                        name:'Item 3',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:4,
-                        name:'Item 4',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:5,
-                        name:'Item 5',
-                        cantidad:1,
-                        comprado:false
-                    }
-                ]
-            },
-            {
-                id:2,                
-                listName:'Lista 2',
-                comprada:false,
-                descripcion:'Descripcion de la lista 2',
-                items:[
-                    {
-                        id:1,
-                        name:'Item 1',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:2,
-                        name:'Item 2',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:3,
-                        name:'Item 3',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:4,
-                        name:'Item 4',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:5,
-                        name:'Item 5',
-                        cantidad:1,
-                        comprado:false
-                    }
-                ]
-            },
-            {
-                id:3,                
-                listName:'Lista 3',
-                comprada:false,
-                descripcion:'Descripcion de la lista 3',
-                items:[
-                    {
-                        id:1,
-                        name:'Item 1',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:2,
-                        name:'Item 2',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:3,
-                        name:'Item 3',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:4,
-                        name:'Item 4',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:5,
-                        name:'Item 5',
-                        cantidad:1,
-                        comprado:false
-                    }
-                ]
-            },
-            {
-                id:4,                
-                listName:'Lista 3',
-                comprada:false,
-                descripcion:'Descripcion de la lista 3',
-                items:[
-                    {
-                        id:1,
-                        name:'Item 1',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:2,
-                        name:'Item 2',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:3,
-                        name:'Item 3',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:4,
-                        name:'Item 4',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:5,
-                        name:'Item 5',
-                        cantidad:1,
-                        comprado:false
-                    }
-                ]
-            },
-            {
-                id:5,                
-                listName:'Lista 3',
-                comprada:false,
-                descripcion:'Descripcion de la lista 3',
-                items:[
-                    {
-                        id:1,
-                        name:'Item 1',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:2,
-                        name:'Item 2',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:3,
-                        name:'Item 3',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:4,
-                        name:'Item 4',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:5,
-                        name:'Item 5',
-                        cantidad:1,
-                        comprado:false
-                    }
-                ]
-            },
-            {
-                id:6,                
-                listName:'Lista 7',
-                comprada:false,
-                descripcion:'Descripcion de la lista 3',
-                items:[
-                    {
-                        id:1,
-                        name:'Item 1',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:2,
-                        name:'Item 2',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:3,
-                        name:'Item 3',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:4,
-                        name:'Item 4',
-                        cantidad:1,
-                        comprado:false
-                    },
-                    {
-                        id:5,
-                        name:'Item 5',
-                        cantidad:1,
-                        comprado:false
-                    }
-                ]
-            }
-            
-        ]
+        Listas:[{}],
+        
     },
     mutations: {
         addEntity(state, entity) {
@@ -292,3 +63,236 @@ const entityStore = createStore({
 });
 
 export default entityStore;
+
+
+
+
+// {
+//     id:1,                
+//     listName:'Lista 1',
+//     comprada:false,
+//     descripcion:'Descripcion de la lista 1',
+//     items:[
+//         {
+//             id:1,
+//             name:'Item 1',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:2,
+//             name:'Item 2',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:3,
+//             name:'Item 3',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:4,
+//             name:'Item 4',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:5,
+//             name:'Item 5',
+//             cantidad:1,
+//             comprado:false
+//         }
+//     ]
+// },
+// {
+//     id:2,                
+//     listName:'Lista 2',
+//     comprada:false,
+//     descripcion:'Descripcion de la lista 2',
+//     items:[
+//         {
+//             id:1,
+//             name:'Item 1',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:2,
+//             name:'Item 2',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:3,
+//             name:'Item 3',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:4,
+//             name:'Item 4',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:5,
+//             name:'Item 5',
+//             cantidad:1,
+//             comprado:false
+//         }
+//     ]
+// },
+// {
+//     id:3,                
+//     listName:'Lista 3',
+//     comprada:false,
+//     descripcion:'Descripcion de la lista 3',
+//     items:[
+//         {
+//             id:1,
+//             name:'Item 1',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:2,
+//             name:'Item 2',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:3,
+//             name:'Item 3',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:4,
+//             name:'Item 4',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:5,
+//             name:'Item 5',
+//             cantidad:1,
+//             comprado:false
+//         }
+//     ]
+// },
+// {
+//     id:4,                
+//     listName:'Lista 3',
+//     comprada:false,
+//     descripcion:'Descripcion de la lista 3',
+//     items:[
+//         {
+//             id:1,
+//             name:'Item 1',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:2,
+//             name:'Item 2',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:3,
+//             name:'Item 3',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:4,
+//             name:'Item 4',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:5,
+//             name:'Item 5',
+//             cantidad:1,
+//             comprado:false
+//         }
+//     ]
+// },
+// {
+//     id:5,                
+//     listName:'Lista 3',
+//     comprada:false,
+//     descripcion:'Descripcion de la lista 3',
+//     items:[
+//         {
+//             id:1,
+//             name:'Item 1',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:2,
+//             name:'Item 2',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:3,
+//             name:'Item 3',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:4,
+//             name:'Item 4',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:5,
+//             name:'Item 5',
+//             cantidad:1,
+//             comprado:false
+//         }
+//     ]
+// },
+// {
+//     id:6,                
+//     listName:'Lista 7',
+//     comprada:false,
+//     descripcion:'Descripcion de la lista 3',
+//     items:[
+//         {
+//             id:1,
+//             name:'Item 1',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:2,
+//             name:'Item 2',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:3,
+//             name:'Item 3',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:4,
+//             name:'Item 4',
+//             cantidad:1,
+//             comprado:false
+//         },
+//         {
+//             id:5,
+//             name:'Item 5',
+//             cantidad:1,
+//             comprado:false
+//         }
+//     ]
+// }
+

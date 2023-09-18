@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-const isAuth = (sessionStorage.getItem('token') && sessionStorage.getItem('token')!= '')
+const isAuth = (localStorage.getItem('token') && localStorage.getItem('token')!= '')
 </script>
 
 <style scoped>

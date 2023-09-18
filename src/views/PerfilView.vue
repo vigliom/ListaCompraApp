@@ -22,7 +22,7 @@
                 <label class="input-control" for="inNombre">Nombre</label>
             </div>
 
-            <button class="btn btn-outline-danger" @click="logout">Cerrar Sesion</button>
+            <router-link :to="{name:'login'}" class="btn btn-outline-danger" @click="logout">Cerrar Sesion</router-link>
 
         </div>
         
@@ -30,9 +30,13 @@
 </div>
 </template>
 <script setup>
+import router from '../router';
 import sotreAuth from '../store/authStore.js'
-function logout(){
-    sotreAuth.dispatch('logout');
+async function logout(){
+    await sotreAuth.dispatch('logout').then(()=>{
+        router.go({name:'login'});
+        console.log('logout');
+    });
 }
 </script>
 

@@ -127,7 +127,7 @@ h1{
   background: none;
    border-top: none;
     .media{
-     img{
+     :is(img){
        border:solid 3px rgba(255,255,255,0.3);
      }
    }

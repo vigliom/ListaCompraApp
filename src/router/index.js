@@ -8,6 +8,7 @@ import AuthView from '../views/AuthView.vue';
 import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import PerfilView from '../views/PerfilView.vue';
+//import viteConfig from '../../vite.config';
 
 const base = '/ListaCompraApp';
 const routes =  [
@@ -93,7 +94,7 @@ router.beforeEach((to, from, next) => {
   
   if (to.meta.isGest) {
     if (sotreAuth.state.user.token) {
-      next({name:'home'});
+      next(base);
     } else {
       next();
     }
@@ -101,7 +102,7 @@ router.beforeEach((to, from, next) => {
     if (sotreAuth.state.user.token) {
       next();
     } else {
-      next({name:'login'});
+      next(base + '/Auth');
     }
   }
 });
