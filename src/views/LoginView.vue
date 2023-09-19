@@ -2,6 +2,7 @@
     <div class="w-50">
         <h1 class="display-1">Login</h1>
         <form @submit="login">
+            <div v-if="error" class="alert-warning "></div>
             <div class="form-group">
                 <label for="email">Correo electronico</label>
                 <input type="email" class="form-control" id="email" v-model="user.email" aria-describedby="emailHelp" placeholder="Introduce tu email">
@@ -16,18 +17,23 @@
     </div>
 </template>
 <script setup>
-import router from '../router';
-import sotreAuth from '../store/authStore'; '../store/authStore.js'
+import sotreAuth from '../store/authStore';
 import { ref } from 'vue';
 
-
-const user =ref({});
-async function login(ev){
+const error = ref(null);
+const user =ref({
+    email: '',
+    password: ''
+});
+const login = (ev)=>{
     ev.preventDefault();
-    
-    await sotreAuth.dispatch('login', user.value).then(()=>{
-        console.log('login');
-        router.go({name:'home'});
+    console.log(user.value); // Agrega esta línea para verificar el contenido de user
+    sotreAuth.dispatch('login', (user.value)).then((res)=>{
+        console.log(res);
+        //router.go({name:'home'});
+    }).catch((e)=>{
+        error.value = e.message;
     });
 }
+
 </script>
