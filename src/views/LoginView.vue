@@ -30,7 +30,7 @@ const login = (ev)=>{
     console.log(user.value); // Agrega esta línea para verificar el contenido de user
     sotreAuth.dispatch('login', (user.value)).then((res)=>{
         console.log(res);
-        //router.go({name:'home'});
+        router.go({name:'home'});
     }).catch((e)=>{
         error.value = e.message;
     });

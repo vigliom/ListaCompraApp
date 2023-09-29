@@ -1,9 +1,9 @@
-import { createStore } from "vuex";
-
+import { createStore, mapGetters, mapActions } from "vuex";
+import axiosClient from '../compostable/axios.js';
 const entityStore = createStore({
     state: {
-        Listas:[{}],
-        
+        Listas: ([]),
+
     },
     mutations: {
         addEntity(state, entity) {
@@ -12,6 +12,9 @@ const entityStore = createStore({
         updateEntity(state, entity) {
             const index = state.entities.findIndex(e => e.id === entity.id);
             state.entities[index] = entity;
+        },
+        setListas(state, listas) {
+            state.Listas = listas;
         },
         removeEntity(state, id) {
             const index = state.entities.findIndex(e => e.id === id);
@@ -27,12 +30,16 @@ const entityStore = createStore({
         },
         removeEntity({ commit }, id) {
             commit('removeEntity', id);
+        },
+        async LoadListas({ commit }) {
+            return await axiosClient.get('listas').then((response) => {
+                commit('setListas', response.data);
+            });
         }
     },
     getters: {
         getListaById: (state) => (id) => {
-            const lista = state.Listas.find(list => list.id === id);            
-            console.log(lista);            
+            const lista = state.Listas.find(Lista => Lista.id === id);
             return lista;
         },
         getAllListas: (state) => {
@@ -68,7 +75,7 @@ export default entityStore;
 
 
 // {
-//     id:1,                
+//     id:1,
 //     listName:'Lista 1',
 //     comprada:false,
 //     descripcion:'Descripcion de la lista 1',
@@ -106,7 +113,7 @@ export default entityStore;
 //     ]
 // },
 // {
-//     id:2,                
+//     id:2,
 //     listName:'Lista 2',
 //     comprada:false,
 //     descripcion:'Descripcion de la lista 2',
@@ -144,7 +151,7 @@ export default entityStore;
 //     ]
 // },
 // {
-//     id:3,                
+//     id:3,
 //     listName:'Lista 3',
 //     comprada:false,
 //     descripcion:'Descripcion de la lista 3',
@@ -182,7 +189,7 @@ export default entityStore;
 //     ]
 // },
 // {
-//     id:4,                
+//     id:4,
 //     listName:'Lista 3',
 //     comprada:false,
 //     descripcion:'Descripcion de la lista 3',
@@ -220,7 +227,7 @@ export default entityStore;
 //     ]
 // },
 // {
-//     id:5,                
+//     id:5,
 //     listName:'Lista 3',
 //     comprada:false,
 //     descripcion:'Descripcion de la lista 3',
@@ -258,7 +265,7 @@ export default entityStore;
 //     ]
 // },
 // {
-//     id:6,                
+//     id:6,
 //     listName:'Lista 7',
 //     comprada:false,
 //     descripcion:'Descripcion de la lista 3',
