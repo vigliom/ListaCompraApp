@@ -33,7 +33,7 @@ const entityStore = createStore({
         },
         async LoadListas({ commit }) {
             return await axiosClient.get('listas').then((response) => {
-                commit('setListas', response.data);
+                commit('setListas', response);
             });
         }
     },

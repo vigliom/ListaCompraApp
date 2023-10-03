@@ -12,8 +12,8 @@ const sotreAuth = createStore({
         login: (state, usuario) => {
             console.log(usuario);
             axiosClient.post('auth/login', { email: usuario.email, password: usuario.password }).then((response) => {
-                console.log(response.data);
-                state.commit('login', response.data);
+                console.log(response);
+                state.commit('login', response);
             }).catch((error) => {
                 console.log(error.response);
                 throw error;
@@ -25,12 +25,10 @@ const sotreAuth = createStore({
 
     },
     mutations: {
-        login: (state, user) => {
-
-            state.user.name = user.name;
-            state.user.token = user.email + 'Token';
-            state.user.email = user.email;
-            sessionStorage.setItem('token', user.email + 'Token');
+        login: (state, token) => {
+            console.log(token);
+            state.user.token = token;
+            sessionStorage.setItem('token', token);
         },
         logout: (state) => {
             state.user.name = '';
