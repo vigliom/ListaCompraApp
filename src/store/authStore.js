@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import axiosClient from '../compostable/axios.js';
+import router from "../router/index.js";
 const sotreAuth = createStore({
     state: {
         user: {
@@ -10,12 +11,12 @@ const sotreAuth = createStore({
     },
     actions: {
         login: (state, usuario) => {
-            console.log(usuario);
+            //console.log(usuario);
             axiosClient.post('auth/login', { email: usuario.email, password: usuario.password }).then((response) => {
-                console.log(response);
+                //console.log(response);
                 state.commit('login', response);
             }).catch((error) => {
-                console.log(error.response);
+                //console.log(error.response);
                 throw error;
             });
         },
@@ -29,6 +30,7 @@ const sotreAuth = createStore({
             console.log(token);
             state.user.token = token;
             sessionStorage.setItem('token', token);
+            router.go({name:"login"});
         },
         logout: (state) => {
             state.user.name = '';

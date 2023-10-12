@@ -1,0 +1,107 @@
+<template>
+    <div @click="menuClick" class="floating_menu" id="float_menu">
+        <div class="menu">
+            <i class="bi bi-exposure"></i>
+                </div>
+        <div class="sub_menu">
+            <i :style="'--i:'+opcion.pos" v-for="opcion in opciones"  :class="opcion.icon"></i>
+        </div>
+    </div>
+</template>
+<script setup>
+import { ref } from 'vue'
+const props = defineProps({
+    Options: Array,
+})
+
+const opciones = ref(props.Options);
+console.log(opciones.value);
+
+function menuClick(e){
+    var menu = document.getElementById("float_menu");
+    menu.classList.toggle("active");
+}
+</script>
+<style scoped>
+.floating_menu {
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    background-color: blanchedalmond;
+    border-radius: 50%;
+    position: relative;
+    font-size: 1.5rem;
+
+    
+}
+
+.menu {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: burlywood;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: -0px 5px 10px #a17125c3;
+}
+
+menu i{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating_menu.active .menu i{
+    transition: all .8s ease-in-out;
+    transform: scale(1.2);
+}
+
+.floating_menu .sub_menu i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 50%;
+    z-index: -10;
+    transition: .8s;
+    transition-delay: calc(40ms * var(--i));
+    box-shadow: -2px 5px 10px #8b8143c8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating_menu.active .sub_menu i:nth-child(1){
+    left: -5px;
+    top: -25px;
+}
+
+.floating_menu.active .sub_menu i:nth-child(2){
+    left: -30px;
+}
+
+.floating_menu.active .sub_menu i:nth-child(3){
+    left: -5px;
+    top: 60px;
+}
+.floating_menu.active .sub_menu i:nth-child(4){
+    top: 60px;
+    left: 45px;
+}
+.floating_menu.active .sub_menu i:nth-child(5){
+    left: 65px;
+}
+.floating_menu.active .sub_menu i:nth-child(6){
+    top: -25px;
+    left: 45px;
+}
+
+
+
+</style>

@@ -4,8 +4,8 @@
 		<div class="m-3 p-3">
 			<h3 class="display-3 text-center">{{ lista.nombre }}</h3>
 			<h5 class="display-5 text-center">{{ lista.descripcion }}</h5>
-			<div class="d-flex justify-content-center flex-column">
-				<ItemComponent v-for="item in lista.articulos" :key="item.id" :articulo="item" />
+			<div class="d-flex justify-content-center flex-column card-group ">
+				<ItemComponent v-for="item in Articulos" :key="item.id" :articulo="item" />
 			</div>
 		</div>
 	</div>
@@ -32,9 +32,10 @@ onMounted(async () => {
 		return entityStore.getters.getListaById(Number.parseInt(props.id));
 	}, (newVal, oldVal) => {
 		lista.value = newVal;
-		Articulos.value = lista.value.articulos;
+		console.log(lista.value);
+		Articulos.value = lista.value.compraArticuloLista;
 		Articulos.value.forEach(articulo => {
-			precio.value += articulo.precioUltimaCompra;
+			precio.value += articulo.precio;
 			console.log(precio.value);
 		});
 	});

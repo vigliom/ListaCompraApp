@@ -1,4 +1,5 @@
 import axios from "axios";
+import router from "../router";
 
 const axiosClient = axios.create({
     baseURL: 'https://localhost:7012/api/',
@@ -22,8 +23,8 @@ axiosClient.interceptors.response.use((response) => {
     return response.data.data;
 }, (error) => {
     if (error.response.status === 401) {
-        //sessionStorage.setItem('token', '');
-        //window.location = '/auth/login';
+        sessionStorage.setItem('token', '');
+        router.go({name:"login"});
     }
     return Promise.reject(error);
 });
