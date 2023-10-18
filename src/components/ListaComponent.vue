@@ -3,8 +3,10 @@
 	<div v-if="lista" class="d-flex justify-content-center">
 		<div class="m-3 p-3">
 			<h3 class="display-3 text-center">{{ lista.nombre }}</h3>
-			<h5 class="display-5 text-center">{{ lista.descripcion }}</h5>
-			<div class="d-flex justify-content-center flex-column card-group ">
+			<div>
+				<h5 class="display-5 text-center">{{ lista.descripcion }}</h5>
+			</div>
+			<div class="d-flex justify-content-center flex-column card-group gradient-cards">
 				<ItemComponent v-for="item in Articulos" :key="item.id" :articulo="item" />
 			</div>
 		</div>
@@ -25,18 +27,15 @@ const props = defineProps(
 );
 const lista = ref({});
 const Articulos = ref([]);
-//lista.value = entityStore.getters.getListaById(Number.parseInt(props.id));
 const precio = ref(0);
 onMounted(async () => {
 	watch(() => {
 		return entityStore.getters.getListaById(Number.parseInt(props.id));
 	}, (newVal, oldVal) => {
 		lista.value = newVal;
-		console.log(lista.value);
 		Articulos.value = lista.value.compraArticuloLista;
 		Articulos.value.forEach(articulo => {
 			precio.value += articulo.precio;
-			console.log(precio.value);
 		});
 	});
 	entityStore.dispatch('LoadListas');
@@ -50,3 +49,16 @@ onMounted(async () => {
 	// });
 
 </script>
+<style scoped>
+.gradient-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  /* padding: 30px; */
+
+  @media screen and (max-width: 991px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>

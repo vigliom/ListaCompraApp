@@ -32,9 +32,8 @@ const entityStore = createStore({
             commit('removeEntity', id);
         },
         async LoadListas({ commit }) {
-            return await axiosClient.get('listas').then((response) => {
-                commit('setListas', response);
-            });
+            const response = await axiosClient.get('listas');
+            commit('setListas', response);
         }
     },
     getters: {

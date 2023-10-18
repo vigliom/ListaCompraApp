@@ -18,20 +18,17 @@
 <style></style>
 <script setup>
 import { ref, onMounted, watch } from 'vue';
-//import entityStore from '../store/entityStore.js';
-import { mapGetters, useStore } from 'vuex';
+import entityStore from '../store/entityStore.js';
 const listas = ref([]);
-const store = useStore();
+
 onMounted(async () => {
   watch(() => {
-    return store.getters.getAllListas;
+    return entityStore.getters.getAllListas;
   }, (newVal, oldVal) => {
     listas.value = newVal;
-    console.log(listas.value);
   });
-  store.dispatch('LoadListas');
-  listas.value = await store.getters.getAllListas;
-  console.log(listas.value);
+  entityStore.dispatch('LoadListas');
+  listas.value = await entityStore.getters.getAllListas;
 });
 </script>
 

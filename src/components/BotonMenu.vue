@@ -4,7 +4,7 @@
             <i class="bi bi-exposure"></i>
                 </div>
         <div class="sub_menu">
-            <i :style="'--i:'+opcion.pos" v-for="opcion in opciones"  :class="opcion.icon"></i>
+            <i :style="'--i:'+ opcion.pos" v-for="opcion in opciones"  :class="opcion.icon"></i>
         </div>
     </div>
 </template>
@@ -12,42 +12,41 @@
 import { ref } from 'vue'
 const props = defineProps({
     Options: Array,
+    idArticu: Number
 })
 
 const opciones = ref(props.Options);
-console.log(opciones.value);
 
 function menuClick(e){
-    var menu = document.getElementById("float_menu");
-    menu.classList.toggle("active");
+    console.log(e.target.parentElement.classList);
+    e.target.parentElement.parentElement.classList.toggle("active");
 }
 </script>
 <style scoped>
 .floating_menu {
     z-index: 100;
-    width: 40px;
-    height: 40px;
-    background-color: blanchedalmond;
+    width: 44px;
+    height: 44px;
+    background-color: rgb(17, 16, 16);
     border-radius: 50%;
     position: relative;
     font-size: 1.5rem;
-
-    
+    color: white;
 }
 
 .menu {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: burlywood;
+    background-color: rgb(35, 35, 35);
     display: grid;
     place-items: center;
     cursor: pointer;
-    box-shadow: -0px 5px 10px #a17125c3;
+    box-shadow: -0px 5px 10px #000000c3;
 }
 
 menu i{
-    color: black;
+    /* color: rgb(255, 255, 255); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,6 +58,7 @@ menu i{
 }
 
 .floating_menu .sub_menu i{
+    cursor: pointer;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -66,12 +66,12 @@ menu i{
     width: 20px;
     height: 20px;
     padding: 20px;
-    background: #ffffff;
+    background: #1f1f1f;
     border-radius: 50%;
     z-index: -10;
     transition: .8s;
     transition-delay: calc(40ms * var(--i));
-    box-shadow: -2px 5px 10px #8b8143c8;
+    box-shadow: -2px 5px 10px #282828c8;
     display: flex;
     justify-content: center;
     align-items: center;

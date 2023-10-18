@@ -10,21 +10,21 @@ const axiosClient = axios.create({
     }
 });
 axiosClient.interceptors.request.use(async (config) => {
-    console.log(config);
     config.headers.Authorization = 'Bearer '+ sessionStorage.getItem('token');
     return config;
 });
 axiosClient.interceptors.response.use((response) => {
-    console.log(response);
+
     if(!response.data.isOk)
     {
         console.log(response.data.data);
     }
     return response.data.data;
 }, (error) => {
-    if (error.response.status === 401) {
+    console.log(error)
+    if (error.response.status === 401 || error.response.status === 403) {
         sessionStorage.setItem('token', '');
-        router.go({name:"login"});
+        //router.go({name:"login"});
     }
     return Promise.reject(error);
 });

@@ -13,10 +13,8 @@ const sotreAuth = createStore({
         login: (state, usuario) => {
             //console.log(usuario);
             axiosClient.post('auth/login', { email: usuario.email, password: usuario.password }).then((response) => {
-                //console.log(response);
                 state.commit('login', response);
             }).catch((error) => {
-                //console.log(error.response);
                 throw error;
             });
         },
