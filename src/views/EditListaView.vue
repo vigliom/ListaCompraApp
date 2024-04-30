@@ -5,11 +5,9 @@
 
 </template>
 <script setup>
-import BotonMenu from '../components/BotonMenu.vue';
 import ListaComponent from '../components/ListaComponent.vue';
 const params=defineProps( {
     id: {
-        type: String,
         required: true
     }
 })

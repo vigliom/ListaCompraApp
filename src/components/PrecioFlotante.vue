@@ -27,8 +27,8 @@ defineProps({
 .bg-glass {
     cursor: pointer;
     z-index: 10000;
-    background: hsla(0, 0%, 100%, 0.200);
-    backdrop-filter: blur(5px);
+    background: hsla(0, 0%, 100%, 0.477);
+    backdrop-filter: blur(2px);
 }
 
 .circulo{

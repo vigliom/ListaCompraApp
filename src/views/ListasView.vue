@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <p class="card-text">{{ lista.descripcion }}</p>
-        <router-link :to="{ name: 'lista', params: { id: lista.id } }" class="btn btn-primary">Ir a la lista</router-link>
+        <router-link :to="{ name: 'lista', params: { id: Number.parseInt(lista.id) } }" class="btn btn-primary">Ir a la lista</router-link>
       </div>
     </div>
   </div>

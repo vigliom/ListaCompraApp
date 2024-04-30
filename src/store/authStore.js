@@ -4,6 +4,7 @@ import router from "../router/index.js";
 const sotreAuth = createStore({
     state: {
         user: {
+            id : sessionStorage.getItem('id'),
             name: '',
             token: sessionStorage.getItem('token'),
             email: ''
@@ -24,10 +25,11 @@ const sotreAuth = createStore({
 
     },
     mutations: {
-        login: (state, token) => {
-            console.log(token);
-            state.user.token = token;
-            sessionStorage.setItem('token', token);
+        login: (state, response) => {
+            state.user.token = response.token;
+            state.user.id = response.id;
+            sessionStorage.setItem('token', response.token);
+            sessionStorage.setItem('id', response.id);
             router.go({name:"login"});
         },
         logout: (state) => {

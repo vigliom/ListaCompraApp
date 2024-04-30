@@ -5,7 +5,6 @@
             <router-link :to="{name: 'listas'}" class="nav-link text-light btn">Lista</router-link>
         </div>
         <div class=" d-flex">
-
             <router-link v-if="isAuth" :to="{name:'perfil'}" class="nav-link text-light btn">Perfil</router-link>
             <div v-else class="nav-link text-light btn d-flex">
                 <router-link :to="{name: 'register'}" class="nav-link text-light btn">Registro</router-link>
@@ -21,4 +20,8 @@ const isAuth = (sessionStorage.getItem('token') && sessionStorage.getItem('token
 </script>
 
 <style scoped>
+.navbar{
+  background: linear-gradient(71deg, #080509, #1a171c, #1c7295);
+
+}
 </style>

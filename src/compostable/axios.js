@@ -24,9 +24,9 @@ axiosClient.interceptors.response.use((response) => {
     console.log(error)
     if (error.response.status === 401 || error.response.status === 403) {
         sessionStorage.setItem('token', '');
-        //router.go({name:"login"});
+        router.go({name:"login"});
     }
-    return Promise.reject(error);
+    return error;
 });
 
 export default axiosClient;

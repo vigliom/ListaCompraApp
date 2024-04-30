@@ -4,7 +4,7 @@
             <i class="bi bi-exposure"></i>
                 </div>
         <div class="sub_menu">
-            <i :style="'--i:'+ opcion.pos" v-for="opcion in opciones"  :class="opcion.icon"></i>
+            <i :style="'--i:'+ opcion.pos" v-for="opcion in opciones" @click="opcion.action"  :class="opcion.icon"></i>
         </div>
     </div>
 </template>
@@ -35,8 +35,8 @@ function menuClick(e){
 }
 
 .menu {
-    width: 100%;
-    height: 100%;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background-color: rgb(35, 35, 35);
     display: grid;
